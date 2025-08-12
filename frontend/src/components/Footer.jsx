@@ -179,7 +179,7 @@ const Footer = () => {
 
   return (
     <motion.footer 
-      className="relative bg-black/60 backdrop-blur-2xl border-t border-white/10 mt-20 overflow-hidden"
+      className="relative bg-black/60 backdrop-blur-2xl border-t border-white/10  overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
