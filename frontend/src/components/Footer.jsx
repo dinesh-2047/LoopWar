@@ -167,8 +167,8 @@ const Footer = () => {
     { name: 'Contact Us', icon: Phone },
     { name: 'Bug Reports', icon: Bug },
     { name: 'Feature Requests', icon: Lightbulb },
-    { name: 'Privacy Policy', icon: Lock },
-    { name: 'Terms of Service', icon: FileText }
+    { name: 'Privacy Policy', icon: Lock, href: '/privacy' },
+    { name: 'Terms of Service', icon: FileText, href: '/terms' }
   ];
 
   const quickStats = [
@@ -404,8 +404,9 @@ const Footer = () => {
               {supportLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
-                  <motion.button 
-                    key={link.name} 
+                  <motion.a
+                    key={link.name}
+                    href={link.href || '#'}
                     className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
                     variants={footerLinkVariants}
                     initial="initial"
@@ -428,7 +429,7 @@ const Footer = () => {
                       <IconComponent className="w-4 h-4" />
                     </motion.div>
                     <span>{link.name}</span>
-                  </motion.button>
+                  </motion.a>
                 );
               })}
             </div>
