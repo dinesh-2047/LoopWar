@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import React, { Component } from 'react';
+import Footer from './components/Footer';
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -30,6 +31,7 @@ function App() {
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
           <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
         </Routes>
+        <Footer/>
       </ErrorBoundary>
     </div>
   );
