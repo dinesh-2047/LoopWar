@@ -404,8 +404,7 @@ const TermsOfServicePage = () => {
                   ? "0 0 40px rgba(239, 68, 68, 0.3)" 
                   : "0 0 30px rgba(249, 115, 22, 0.2)"
               }}
-              onHoverStart={() => setExpandedSection(section.id)}
-              onHoverEnd={() => setExpandedSection(null)}
+                onClick={() => setExpandedSection(expandedSection === section.id ? null : section.id)}
             >
               {/* Important Badge */}
               {section.important && (
