@@ -6,6 +6,7 @@ import SignIn from './components/Sigin';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
+import Contact from './pages/Contact'
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -36,6 +37,7 @@ function App() {
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
           <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
           <Route path="/Signin" element={<SignIn />} />
+          <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
         <Footer/>
       </ErrorBoundary>
