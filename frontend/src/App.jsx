@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
-import Contact from './components/Contact';
+import Contact from './pages/Contact'
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -35,7 +35,7 @@ function App() {
           <Route path="/join-room" element={<div className="text-white text-center p-10">Join Room Page</div>} />
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
           <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
-          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
         <Footer/>
       </ErrorBoundary>
