@@ -39,6 +39,9 @@ const Navbar = () => {
           <Link to="/leaderboard" className="text-gray-300 hover:text-purple-400 transition duration-300">
             Leaderboard
           </Link>
+          <Link to="/Signin" className="text-gray-300 hover:text-purple-400 transition duration-300">
+            SignIn
+          </Link>
         </div>
         <button
           className="md:hidden text-gray-300 focus:outline-none"
