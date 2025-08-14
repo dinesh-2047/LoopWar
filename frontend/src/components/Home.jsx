@@ -1,3 +1,4 @@
+import Counter from "./Counter.jsx";
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -82,12 +83,13 @@ const ModernLandingPage = () => {
     }
   ];
 
-  const stats = [
-    { number: "10K+", label: "Active Warriors", icon: Users },
-    { number: "50K+", label: "Battles Completed", icon: Swords },
-    { number: "<1ms", label: "Response Time", icon: Zap },
-    { number: "24/7", label: "Always Online", icon: Earth }
-  ];
+const stats = [
+  { value: 10, display: "10K+", label: "Active Warriors", icon: Users },
+  { value: 500, display: "50K+", label: "Battles Completed", icon: Swords },
+  { value: 1, display: "<1ms", label: "Response Time", icon: Zap },
+  { value: 24, display: "24/7", label: "Always Online", icon: Earth }
+];
+
 
   // Animation variants
   const containerVariants = {
@@ -353,7 +355,7 @@ const ModernLandingPage = () => {
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.1, type: "spring" }}
                 >
-                  {stat.number}
+                  <Counter targetNumber={stat.value} display={stat.display} duration={2000} />
                 </motion.div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
               </motion.div>
