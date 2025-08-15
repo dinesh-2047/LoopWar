@@ -99,9 +99,9 @@ input::placeholder {
 }
 
 .graph-line {
+    margin-top: 10px;
   height: 2px;
   background: linear-gradient(to right, orange, purple);
-  margin-top: 10px;
 }
 
 .data-box {
