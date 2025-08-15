@@ -4,6 +4,12 @@ import Navbar from './components/Navbar';
 import React, { Component } from 'react';
 import SignIn from './components/Sigin';
 
+const handleReset = () => {
+  if (window.confirm("Are you sure you want to reset everything?")) {
+    window.location.reload();
+  }
+};
+
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -23,7 +29,7 @@ function App() {
   return (
     <div className="bg-gray-900 min-h-screen">
       <ErrorBoundary>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-room" element={<div className="text-white text-center p-10">Create Room Page</div>} />
