@@ -241,18 +241,16 @@ const stats = [
         animate="visible"
       >
         {/* Hero Section */}
-      <div className="text-center mb-32">
-  <motion.div className="mb-8" variants={slideUpVariants}>
-    <motion.h1
-      className="font-black mb-6 bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 
-      bg-clip-text text-transparent filter drop-shadow-2xl
-      text-[clamp(2.5rem,8vw,6rem)] md:text-[clamp(4rem,8vw,9rem)]"
-      variants={logoVariants}
-      initial="initial"
-      animate="animate"
-    >
-      LOOPWAR
-    </motion.h1>
+        <div className="text-center mb-32">
+          <motion.div className="mb-8" variants={slideUpVariants}>
+            <motion.h1 
+              className="text-7xl md:text-9xl font-black mb-6 bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 bg-clip-text text-transparent filter drop-shadow-2xl"
+              variants={logoVariants}
+              initial="initial"
+              animate="animate"
+            >
+              LOOPWAR
+            </motion.h1>
             <motion.div 
               className="text-4xl mb-4"
               animate={{ rotate: [0, 5, -5, 0] }}
