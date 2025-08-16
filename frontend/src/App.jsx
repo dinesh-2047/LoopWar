@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
 import Contact from './pages/Contact'
+import BackToTopButton from "./components/BackToTopButton";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -38,6 +39,7 @@ function App() {
           <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
         <Footer/>
+        <BackToTopButton />
       </ErrorBoundary>
     </div>
   );
