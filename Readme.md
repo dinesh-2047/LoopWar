@@ -84,7 +84,7 @@ The database is structured to handle both **real-time updates** and **persistent
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/dinesh-2047/loopwar.git
+git clone https://github.com/your-username/loopwar.git
 cd loopwar
 
 # 2️⃣ Install dependencies
