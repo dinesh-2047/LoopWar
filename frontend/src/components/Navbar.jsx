@@ -11,6 +11,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import { Link } from 'react-router-dom'; // ✅ Import Link for routing
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,14 +38,6 @@ const Navbar = () => {
     initial: { scale: 1 },
     hover: { 
       scale: 1.05,
-      transition: { duration: 0.3 }
-    }
-  };
-
-  const navLinkVariants = {
-    initial: { scale: 1 },
-    hover: { 
-      scale: 1.02,
       transition: { duration: 0.3 }
     }
   };
@@ -118,64 +111,61 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             
             {/* Logo */}
-            <motion.button 
+            <motion.div 
               className="group"
               variants={logoVariants}
               initial="initial"
               whileHover="hover"
             >
-              <motion.div 
-                className="text-2xl md:text-3xl font-black bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 bg-clip-text text-transparent flex items-center gap-2"
-                animate={{
-                  textShadow: [
-                    "0 0 20px rgba(139, 92, 246, 0.5)",
-                    "0 0 30px rgba(139, 92, 246, 0.8)",
-                    "0 0 20px rgba(139, 92, 246, 0.5)"
-                  ]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Swords className="w-7 h-7 md:w-8 md:h-8 text-violet-400" />
-                LOOPWAR
-              </motion.div>
-            </motion.button>
+              <Link to="/" className="flex items-center gap-2">
+                <motion.div 
+                  className="text-2xl md:text-3xl font-black bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 bg-clip-text text-transparent flex items-center gap-2"
+                  animate={{
+                    textShadow: [
+                      "0 0 20px rgba(139, 92, 246, 0.5)",
+                      "0 0 30px rgba(139, 92, 246, 0.8)",
+                      "0 0 20px rgba(139, 92, 246, 0.5)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  <Swords className="w-7 h-7 md:w-8 md:h-8 text-violet-400" />
+                  LOOPWAR
+                </motion.div>
+              </Link>
+            </motion.div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8 items-center">
-              {navItems.map((item, index) => {
+              {navItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={item.name}>
-                    <motion.button 
-                      className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/5 overflow-hidden"
-                      variants={navLinkVariants}
+                  <Link 
+                    to={item.path} 
+                    key={item.name}
+                    className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/5 overflow-hidden"
+                  >
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-500 to-pink-400"
+                      initial={{ width: "0%" }}
+                      whileHover={{ 
+                        width: "100%",
+                        transition: { duration: 0.3, ease: "easeOut" }
+                      }}
+                    />
+                    <motion.div
+                      variants={iconVariants}
                       initial="initial"
                       whileHover="hover"
                     >
-                      {/* Underline animation */}
-                      <motion.div
-                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-500 to-pink-400"
-                        initial={{ width: "0%" }}
-                        whileHover={{ 
-                          width: "100%",
-                          transition: { duration: 0.3, ease: "easeOut" }
-                        }}
-                      />
-                      
-                      <motion.div
-                        variants={iconVariants}
-                        initial="initial"
-                        whileHover="hover"
-                      >
-                        <IconComponent className="w-4 h-4" />
-                      </motion.div>
-                      <span>{item.name}</span>
-                    </motion.button>
-                  </div>
+                      <IconComponent className="w-4 h-4" />
+                    </motion.div>
+                    <span>{item.name}</span>
+                  </Link>
                 );
               })}
               
@@ -226,11 +216,10 @@ const Navbar = () => {
                     animate={isOpen ? "open" : "closed"}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <motion.button
+                    <Link
+                      to={item.path}
                       className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors duration-300 py-3 px-4 rounded-lg hover:bg-white/10 group w-full text-left"
                       onClick={() => setIsOpen(false)}
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      whileTap={{ scale: 0.98 }}
                     >
                       <motion.div
                         variants={iconVariants}
@@ -240,7 +229,7 @@ const Navbar = () => {
                         <IconComponent className="w-5 h-5" />
                       </motion.div>
                       <span className="font-medium">{item.name}</span>
-                    </motion.button>
+                    </Link>
                   </motion.div>
                 );
               })}
