@@ -211,7 +211,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Quick Stats Bar */}
         <motion.div 
-          className="bg-gradient-to-r from-violet-900/40 to-purple-900/40 rounded-2xl p-6 mb-12 border border-white/10 backdrop-blur-sm"
+          className="bg-gradient-to-r from-violet-900/40 to-purple-900/40 rounded-t-2xl p-6 mb-0 border border-white/10 backdrop-blur-sm"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -237,6 +237,41 @@ const Footer = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </motion.div>
+
+         {/* Newsletter Signup */}
+        <motion.div 
+          className="bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-b-2xl p-8 mb-12 border border-white/10 backdrop-blur-sm"
+          variants={slideUpVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.8 }}
+        >
+          <div className="max-w-2xl mx-auto text-center"> 
+            <h3 className="text-2xl font-bold mb-4 text-white flex items-center justify-center gap-2">
+              <AlertTriangle className="w-6 h-6 text-orange-400" />
+              Stay in the Loop
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Get notified about new tournaments, features, and epic battles. Join our warrior newsletter!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your battle email..."
+                className="flex-1 px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-400/50 backdrop-blur-sm"
+              />
+              <motion.button 
+                className="px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Zap className="w-4 h-4" />
+                Subscribe
+              </motion.button>
+            </div>
           </div>
         </motion.div>
 
@@ -436,40 +471,6 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Newsletter Signup */}
-        <motion.div 
-          className="bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-2xl p-8 mb-12 border border-white/10 backdrop-blur-sm"
-          variants={slideUpVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.8 }}
-        >
-          <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4 text-white flex items-center justify-center gap-2">
-              <AlertTriangle className="w-6 h-6 text-orange-400" />
-              Stay in the Loop
-            </h3>
-            <p className="text-gray-300 mb-6">
-              Get notified about new tournaments, features, and epic battles. Join our warrior newsletter!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your battle email..."
-                className="flex-1 px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-400/50 backdrop-blur-sm"
-              />
-              <motion.button 
-                className="px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Zap className="w-4 h-4" />
-                Subscribe
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Bottom Section */}
         <motion.div 
