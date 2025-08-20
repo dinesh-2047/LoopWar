@@ -13,6 +13,8 @@ import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
 import Contact from './pages/Contact'
+import BackToTopButton from "./components/BackToTopButton";
+import Leaderboard from './pages/Leaderboard';
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -44,9 +46,12 @@ function App() {
           <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
           <Route path="/Signin" element={<SignIn />} />
 
+
+          <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
         <Footer/>
+        <BackToTopButton />
       </ErrorBoundary>
     </div>
   );

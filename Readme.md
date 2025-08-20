@@ -84,7 +84,7 @@ The database is structured to handle both **real-time updates** and **persistent
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/yourusername/loopwar.git
+git clone https://github.com/your-username/loopwar.git
 cd loopwar
 
 # 2️⃣ Install dependencies
@@ -108,7 +108,7 @@ loopwar/
 │
 ├── frontend/ # Frontend (Vite + React + Tailwind CSS)
 │ ├── public/ # Static assets (images, icons, etc.)
-│ │ └── vite.svg
+│ │ └── loopwar_logo.png
 │ │
 │ ├── src/ # Application source code
 │ │ ├── assets/ # Project-specific assets (images, fonts, etc.)
