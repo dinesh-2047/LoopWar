@@ -2,6 +2,13 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import React, { Component } from 'react';
+import SignIn from './components/Sigin';
+
+const handleReset = () => {
+  if (window.confirm("Are you sure you want to reset everything?")) {
+    window.location.reload();
+  }
+};
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
@@ -28,7 +35,7 @@ function App() {
   return (
     <div className="bg-gray-900 min-h-screen">
       <ErrorBoundary>
-        <Navbar />
+        <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<PrivacyPolicyPage/>} />
@@ -36,6 +43,10 @@ function App() {
           <Route path="/create-room" element={<div className="text-white text-center p-10">Create Room Page</div>} />
           <Route path="/join-room" element={<div className="text-white text-center p-10">Join Room Page</div>} />
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
+          <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
+          <Route path="/Signin" element={<SignIn />} />
+
+
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
