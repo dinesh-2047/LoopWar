@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
 import Contact from './pages/Contact'
+import BackToTopButton from "./components/BackToTopButton";
+import Leaderboard from './pages/Leaderboard';
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -34,10 +36,11 @@ function App() {
           <Route path="/create-room" element={<div className="text-white text-center p-10">Create Room Page</div>} />
           <Route path="/join-room" element={<div className="text-white text-center p-10">Join Room Page</div>} />
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
-          <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
         <Footer/>
+        <BackToTopButton />
       </ErrorBoundary>
     </div>
   );

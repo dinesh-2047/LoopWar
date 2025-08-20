@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Twitter, 
-  Facebook, 
-  Instagram, 
-  Linkedin, 
-  Youtube, 
-  MessageCircle,
+import {
+  Github,
+  Twitter,
+  Linkedin,
+  Instagram,
   Rocket,
   Swords,
   Trophy,
@@ -66,8 +64,8 @@ const Footer = () => {
 
   const slideUpVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6,
@@ -78,19 +76,19 @@ const Footer = () => {
 
   const footerLinkVariants = {
     initial: { x: 0 },
-    hover: { 
+    hover: {
       x: 4,
       transition: { duration: 0.3, ease: "easeOut" }
     }
   };
 
   const socialGlowVariants = {
-    initial: { 
-      scale: 1, 
+    initial: {
+      scale: 1,
       y: 0,
       boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)"
     },
-    hover: { 
+    hover: {
       scale: 1.05,
       y: -2,
       transition: { duration: 0.3, ease: "easeOut" }
@@ -99,49 +97,48 @@ const Footer = () => {
 
   const iconScaleVariants = {
     initial: { scale: 1 },
-    hover: { 
+    hover: {
       scale: 1.1,
       transition: { duration: 0.3 }
     }
   };
 
   const socialLinks = [
-    { 
-      icon: Twitter, 
-      name: 'Twitter', 
-      color: 'from-blue-400 to-blue-600',
-      hoverColor: 'hover:shadow-blue-400/30'
-    },
-    { 
-      icon: Facebook, 
-      name: 'Facebook', 
-      color: 'from-blue-600 to-blue-800',
-      hoverColor: 'hover:shadow-blue-600/30'
-    },
-    { 
-      icon: Instagram, 
-      name: 'Instagram', 
-      color: 'from-pink-500 to-purple-600',
-      hoverColor: 'hover:shadow-pink-500/30'
-    },
-    { 
-      icon: Linkedin, 
-      name: 'LinkedIn', 
+    {
+      icon: Linkedin,
+      name: 'LinkedIn',
       color: 'from-blue-700 to-blue-900',
-      hoverColor: 'hover:shadow-blue-700/30'
+      hoverColor: 'hover:shadow-blue-700/30',
+      url: 'https://www.linkedin.com/in/dinesh-bhardwaj2047/'
     },
-    { 
-      icon: Youtube, 
-      name: 'YouTube', 
+    {
+      icon: Mail,
+      name: 'Email',
       color: 'from-red-500 to-red-700',
-      hoverColor: 'hover:shadow-red-500/30'
+      hoverColor: 'hover:shadow-red-500/30',
+      url: 'mailto:dinesh07bhardwaj@gmail.com'
     },
-    { 
-      icon: MessageCircle, 
-      name: 'Discord', 
-      color: 'from-indigo-500 to-purple-600',
-      hoverColor: 'hover:shadow-indigo-500/30'
-    }
+    {
+      icon: Twitter,
+      name: 'Twitter',
+      color: 'from-blue-400 to-blue-600',
+      hoverColor: 'hover:shadow-blue-400/30',
+      url: 'https://x.com/dinesh_2047'
+    },
+    {
+      icon: Instagram,
+      name: 'Instagram',
+      color: 'from-pink-500 to-purple-600',
+      hoverColor: 'hover:shadow-pink-500/30',
+      url: 'https://www.instagram.com/___the__max___/'
+    },
+    {
+      icon: Github,
+      name: 'GitHub',
+      color: 'from-gray-900 to-gray-800',
+      hoverColor: 'hover:shadow-pink-500/30',
+      url: 'https://github.com/dinesh-2047'
+    },
   ];
 
   const platformLinks = [
@@ -164,7 +161,7 @@ const Footer = () => {
 
   const supportLinks = [
     { name: 'Help Center', icon: HelpCircle },
-    { name: 'Contact Us', icon: Phone, href : '/contact-us' },
+    { name: 'Contact Us', icon: Phone, href: '/contact-us' },
     { name: 'Bug Reports', icon: Bug },
     { name: 'Feature Requests', icon: Lightbulb },
     { name: 'Privacy Policy', icon: Lock, href: '/privacy' },
@@ -178,7 +175,7 @@ const Footer = () => {
   ];
 
   return (
-    <motion.footer 
+    <motion.footer
       className="relative bg-black/60 backdrop-blur-2xl border-t border-white/10  overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -188,20 +185,20 @@ const Footer = () => {
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
       </div>
-      
+
       {/* Floating Orbs */}
-      <motion.div 
+      <motion.div
         className="absolute top-10 left-10 w-20 h-20 bg-gradient-to-r from-violet-500/20 to-purple-600/20 rounded-full blur-xl"
         variants={floatVariants}
         animate="animate"
       />
-      <motion.div 
+      <motion.div
         className="absolute top-20 right-20 w-16 h-16 bg-gradient-to-r from-pink-500/20 to-red-600/20 rounded-full blur-xl"
         variants={floatVariants}
         animate="animate"
         transition={{ delay: 2 }}
       />
-      <motion.div 
+      <motion.div
         className="absolute bottom-10 left-1/3 w-12 h-12 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-full blur-xl"
         variants={floatVariants}
         animate="animate"
@@ -210,8 +207,12 @@ const Footer = () => {
 
       <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Quick Stats Bar */}
+
         <motion.div 
           className="bg-gradient-to-r from-violet-900/40 to-purple-900/40 rounded-t-2xl p-6 mb-0 border border-white/10 backdrop-blur-sm"
+
+        <motion.div
+          className="bg-gradient-to-r from-violet-900/40 to-purple-900/40 rounded-2xl p-6 mb-12 border border-white/10 backdrop-blur
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -220,8 +221,8 @@ const Footer = () => {
             {quickStats.map((stat, index) => {
               const IconComponent = stat.icon;
               return (
-                <motion.div 
-                  key={stat.label} 
+                <motion.div
+                  key={stat.label}
                   variants={slideUpVariants}
                   initial="hidden"
                   animate="visible"
@@ -277,16 +278,16 @@ const Footer = () => {
 
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          
+
           {/* Brand Section */}
-          <motion.div 
+          <motion.div
             className="lg:col-span-2 space-y-6"
             variants={slideUpVariants}
             initial="hidden"
             animate="visible"
           >
             <div className="space-y-4">
-              <motion.div 
+              <motion.div
                 className="text-3xl font-black bg-gradient-to-r from-violet-400 via-purple-500 to-pink-500 bg-clip-text text-transparent flex items-center gap-2"
                 variants={glowVariants}
                 animate="animate"
@@ -295,11 +296,11 @@ const Footer = () => {
                 LOOPWAR
               </motion.div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-                The ultimate competitive coding platform where warriors battle through algorithms and data structures. 
+                The ultimate competitive coding platform where warriors battle through algorithms and data structures.
                 Join thousands of developers in epic coding duels that push your skills to the limit.
               </p>
             </div>
-            
+
             {/* Social Media Links */}
             <div>
               <h4 className="text-white font-semibold mb-4 flex items-center space-x-2">
@@ -310,8 +311,11 @@ const Footer = () => {
                 {socialLinks.map((social, index) => {
                   const IconComponent = social.icon;
                   return (
-                    <motion.button
+                    <motion.a
                       key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`w-12 h-12 bg-gradient-to-r ${social.color} rounded-full flex items-center justify-center text-white font-bold ${social.hoverColor}`}
                       variants={socialGlowVariants}
                       initial="initial"
@@ -327,7 +331,7 @@ const Footer = () => {
                       >
                         <IconComponent className="w-5 h-5" />
                       </motion.div>
-                    </motion.button>
+                    </motion.a>
                   );
                 })}
               </div>
@@ -335,7 +339,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Platform Section */}
-          <motion.div 
+          <motion.div
             variants={slideUpVariants}
             initial="hidden"
             animate="visible"
@@ -349,8 +353,8 @@ const Footer = () => {
               {platformLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
-                  <motion.button 
-                    key={link.name} 
+                  <motion.button
+                    key={link.name}
                     className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
                     variants={footerLinkVariants}
                     initial="initial"
@@ -360,7 +364,7 @@ const Footer = () => {
                     <motion.div
                       className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
                       initial={{ width: 0, y: "-50%" }}
-                      whileHover={{ 
+                      whileHover={{
                         width: "4px",
                         transition: { duration: 0.3, ease: "easeOut" }
                       }}
@@ -380,7 +384,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Community Section */}
-          <motion.div 
+          <motion.div
             variants={slideUpVariants}
             initial="hidden"
             animate="visible"
@@ -394,8 +398,8 @@ const Footer = () => {
               {communityLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
-                  <motion.button 
-                    key={link.name} 
+                  <motion.button
+                    key={link.name}
                     className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
                     variants={footerLinkVariants}
                     initial="initial"
@@ -405,7 +409,7 @@ const Footer = () => {
                     <motion.div
                       className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
                       initial={{ width: 0, y: "-50%" }}
-                      whileHover={{ 
+                      whileHover={{
                         width: "4px",
                         transition: { duration: 0.3, ease: "easeOut" }
                       }}
@@ -425,7 +429,7 @@ const Footer = () => {
           </motion.div>
 
           {/* Support Section */}
-          <motion.div 
+          <motion.div
             variants={slideUpVariants}
             initial="hidden"
             animate="visible"
@@ -451,7 +455,7 @@ const Footer = () => {
                     <motion.div
                       className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
                       initial={{ width: 0, y: "-50%" }}
-                      whileHover={{ 
+                      whileHover={{
                         width: "4px",
                         transition: { duration: 0.3, ease: "easeOut" }
                       }}
@@ -471,9 +475,44 @@ const Footer = () => {
           </motion.div>
         </div>
 
+        {/* Newsletter Signup */}
+        <motion.div
+          className="bg-gradient-to-r from-violet-900/20 to-purple-900/20 rounded-2xl p-8 mb-12 border border-white/10 backdrop-blur-sm"
+          variants={slideUpVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.8 }}
+        >
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl font-bold mb-4 text-white flex items-center justify-center gap-2">
+              <AlertTriangle className="w-6 h-6 text-orange-400" />
+              Stay in the Loop
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Get notified about new tournaments, features, and epic battles. Join our warrior newsletter!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your battle email..."
+                className="flex-1 px-4 py-3 bg-black/40 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-400/50 backdrop-blur-sm"
+              />
+              <motion.button
+                className="px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Zap className="w-4 h-4" />
+                Subscribe
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+
 
         {/* Bottom Section */}
-        <motion.div 
+        <motion.div
           className="border-t border-white/10 pt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -487,10 +526,10 @@ const Footer = () => {
                 <Swords className="w-4 h-4" />
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-4 text-sm text-gray-400">
               <span className="flex items-center space-x-2">
-                <motion.span 
+                <motion.span
                   className="w-2 h-2 bg-green-500 rounded-full"
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
