@@ -35,6 +35,7 @@ import {
 
 const Footer = () => {
   const [hoveredSocial, setHoveredSocial] = useState(null);
+  const currentYear = new Date().getFullYear();
 
   // Animation variants
   const floatVariants = {
@@ -509,7 +510,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm text-center md:text-left">
-              <p>© 2024 LOOPWAR. Built for warriors, by warriors.</p>
+              <p>© {currentYear} LOOPWAR. Built for warriors, by warriors.</p>
               <div className="mt-1 flex items-center justify-center md:justify-start gap-2">
                 <span>All rights reserved. May the best code win!</span>
                 <Swords className="w-4 h-4" />
