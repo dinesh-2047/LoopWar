@@ -9,7 +9,7 @@ import TermsOfServicePage from './pages/TermsofServicePage';
 import Contact from './pages/Contact'
 import BackToTopButton from "./components/BackToTopButton";
 import Leaderboard from './pages/Leaderboard';
-
+import FAQ from './components/FAQ';
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -38,6 +38,7 @@ function App() {
           <Route path="/join-room" element={<div className="text-white text-center p-10">Join Room Page</div>} />
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
           <Route path="/opensource" element={<Opensource />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
         </Routes>
