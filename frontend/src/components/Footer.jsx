@@ -157,7 +157,7 @@ const Footer = () => {
     { name: 'Reddit Community', icon: Flame },
     { name: 'Blog', icon: PenTool },
     { name: 'Newsletter', icon: Mail },
-    { name: 'Events', icon: Calendar },
+    { name: 'Events', icon: Calendar , to: '/events'},
     { name: 'Open Source', icon: Gamepad2 , to: '/opensource' }
   ];
 
@@ -362,11 +362,13 @@ const Footer = () => {
               {communityLinks.map((link) => {
   const IconComponent = link.icon;
   return link.to ? (
+    // If link has a `to` property, use React Router Link
     <motion.div key={link.name}>
       <Link
-        to={link.to}
+        to={link.to} // make sure this is like "/events"
         className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
       >
+        {/* Animated underline */}
         <motion.div
           className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
           initial={{ width: 0, y: "-50%" }}
@@ -379,6 +381,7 @@ const Footer = () => {
       </Link>
     </motion.div>
   ) : (
+    // If link does not have `to`, use a button (or fallback anchor)
     <motion.button
       key={link.name}
       className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
@@ -398,6 +401,7 @@ const Footer = () => {
     </motion.button>
   );
 })}
+
 
             </div>
           </motion.div>
