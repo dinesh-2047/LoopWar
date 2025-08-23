@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import BackToTopButton from "./components/BackToTopButton";
 import Leaderboard from './pages/Leaderboard';
 import FAQ from './components/FAQ';
+import Tournaments from './components/Tournaments';
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
+          <Route path='/tournaments' element={<Tournaments/>}/>
         </Routes>
         <Footer/>
         <BackToTopButton />
