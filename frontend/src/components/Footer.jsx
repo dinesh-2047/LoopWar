@@ -152,7 +152,7 @@ const Footer = () => {
   ];
 
   const communityLinks = [
-    { name: 'Leaderboard', icon: BarChart3 },
+    { name: 'Leaderboard', icon: BarChart3,to: '/leaderboard' },
     { name: 'Discord Server', icon: MessageSquare },
     { name: 'Reddit Community', icon: Flame },
     { name: 'Blog', icon: PenTool },
