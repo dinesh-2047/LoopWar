@@ -8,3 +8,12 @@ module.exports = {
   },
   plugins: [],
 }
+export default {
+  theme: {
+    extend: {
+      fontFamily: {
+        brick: ["Bricksans", "sans-serif"],
+      },
+    },
+  },
+};

@@ -10,12 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.4",
+    "@react-three/fiber": "^9.3.0",
+    "@splinetool/react-spline": "^4.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.7",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.539.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-router-dom": "^7.8.0"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.8.0",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
