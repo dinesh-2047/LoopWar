@@ -405,6 +405,7 @@ const Footer = () => {
                 const IconComponent = link.icon;
                 return (
                   <motion.a
+
                     key={link.name}
                     href={link.href || '#'}
                     className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
