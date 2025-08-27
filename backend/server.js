@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import connectMongoDB from "./db/connectMongoDB.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import OauthRoutes from "./routes/OAuth.route.js";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/auth/google", OauthRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the server");

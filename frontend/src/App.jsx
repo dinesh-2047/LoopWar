@@ -13,6 +13,7 @@ import FAQ from "./components/FAQ";
 import Events from "./components/Event";
 import SignUp from "./Auth/SignUp";
 import Login from "./Auth/Login";
+import GoogleRedirect from "./Auth/GoogleRedirect";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -71,6 +72,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/auth/google/callback" element={<GoogleRedirect />} />
         </Routes>
         <Footer />
         <BackToTopButton />
