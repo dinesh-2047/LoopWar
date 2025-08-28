@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Rocket, 
@@ -150,7 +149,7 @@ const Navbar = () => {
                     <Link to={item.path}>
                     <motion.button 
                       className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/5 overflow-hidden"
-                      variants={navLinkVariants}
+                      // variants={navLinkVariants}
                       initial="initial"
                       whileHover="hover"
                     >
