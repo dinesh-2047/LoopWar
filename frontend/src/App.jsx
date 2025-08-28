@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import BackToTopButton from "./components/BackToTopButton";
 import Leaderboard from "./pages/Leaderboard";
 import FAQ from "./components/FAQ";
+import Tournaments from "./components/Tournaments";
 import Events from "./components/Event";
 import SignUp from "./Auth/SignUp";
 import Login from "./Auth/Login";
@@ -67,9 +68,8 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/tournaments" element={<Tournaments />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/auth/google/callback" element={<GoogleRedirect />} />
