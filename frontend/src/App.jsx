@@ -12,6 +12,10 @@ import Leaderboard from './pages/Leaderboard';
 import FAQ from './components/FAQ';
 import Tournaments from './components/Tournaments';
 import Events from './components/Event';
+import RoomVoiceVideoChat from './components/RoomVoiceVideoChat';
+import SpectatorRoom from "./components/SpectatorRoom.jsx";
+import CreateChallenge from "./components/CreateChallenge";
+import CodeReviewBot from "./components/CodeReviewBot";
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -45,6 +49,10 @@ function App() {
           <Route path='/contact-us' element={<Contact/>}/>
           <Route path='/tournaments' element={<Tournaments/>}/>
           <Route path="/events" element={<Events />} />
+          <Route path="/room-chat" element={<RoomVoiceVideoChat />} />
+          <Route path="/spectate" element={<SpectatorRoom />} />
+          <Route path="/create-challenge" element={<CreateChallenge />} />
+          <Route path="/code-review-bot" element={<CodeReviewBot />} />
         </Routes>
         <Footer/>
         <BackToTopButton />
