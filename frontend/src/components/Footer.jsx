@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   Github,
   Twitter,
@@ -151,12 +152,13 @@ const Footer = () => {
   ];
 
   const communityLinks = [
-    { name: 'Leaderboard', icon: BarChart3 },
+    { name: 'Leaderboard', icon: BarChart3,to: '/leaderboard' },
     { name: 'Discord Server', icon: MessageSquare },
     { name: 'Reddit Community', icon: Flame },
     { name: 'Blog', icon: PenTool },
     { name: 'Newsletter', icon: Mail },
-    { name: 'Events', icon: Calendar }
+    { name: 'Events', icon: Calendar , to: '/events'},
+    { name: 'Open Source', icon: Gamepad2 , to: '/opensource' }
   ];
 
   const supportLinks = [
@@ -165,7 +167,8 @@ const Footer = () => {
     { name: 'Bug Reports', icon: Bug },
     { name: 'Feature Requests', icon: Lightbulb },
     { name: 'Privacy Policy', icon: Lock, href: '/privacy' },
-    { name: 'Terms of Service', icon: FileText, href: '/terms' }
+    { name: 'Terms of Service', icon: FileText, href: '/terms' },
+    {name: 'FAQ', icon: HelpCircle, to: '/faq' }
   ];
 
   const quickStats = [
@@ -357,35 +360,49 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               {communityLinks.map((link) => {
-                const IconComponent = link.icon;
-                return (
-                  <motion.button
-                    key={link.name}
-                    className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
-                    variants={footerLinkVariants}
-                    initial="initial"
-                    whileHover="hover"
-                  >
-                    {/* Animated underline */}
-                    <motion.div
-                      className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
-                      initial={{ width: 0, y: "-50%" }}
-                      whileHover={{
-                        width: "4px",
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
-                    />
-                    <motion.div
-                      variants={iconScaleVariants}
-                      initial="initial"
-                      whileHover="hover"
-                    >
-                      <IconComponent className="w-4 h-4" />
-                    </motion.div>
-                    <span>{link.name}</span>
-                  </motion.button>
-                );
-              })}
+  const IconComponent = link.icon;
+  return link.to ? (
+    // If link has a `to` property, use React Router Link
+    <motion.div key={link.name}>
+      <Link
+        to={link.to} // make sure this is like "/events"
+        className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
+      >
+        {/* Animated underline */}
+        <motion.div
+          className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
+          initial={{ width: 0, y: "-50%" }}
+          whileHover={{ width: "4px", transition: { duration: 0.3, ease: "easeOut" } }}
+        />
+        <motion.div variants={iconScaleVariants} initial="initial" whileHover="hover">
+          <IconComponent className="w-4 h-4" />
+        </motion.div>
+        <span>{link.name}</span>
+      </Link>
+    </motion.div>
+  ) : (
+    // If link does not have `to`, use a button (or fallback anchor)
+    <motion.button
+      key={link.name}
+      className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
+      variants={footerLinkVariants}
+      initial="initial"
+      whileHover="hover"
+    >
+      <motion.div
+        className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
+        initial={{ width: 0, y: "-50%" }}
+        whileHover={{ width: "4px", transition: { duration: 0.3, ease: "easeOut" } }}
+      />
+      <motion.div variants={iconScaleVariants} initial="initial" whileHover="hover">
+        <IconComponent className="w-4 h-4" />
+      </motion.div>
+      <span>{link.name}</span>
+    </motion.button>
+  );
+})}
+
+
             </div>
           </motion.div>
 
@@ -402,36 +419,52 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               {supportLinks.map((link) => {
-                const IconComponent = link.icon;
-                return (
-                  <motion.a
-                    key={link.name}
-                    href={link.href || '#'}
-                    className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
-                    variants={footerLinkVariants}
-                    initial="initial"
-                    whileHover="hover"
-                  >
-                    {/* Animated underline */}
-                    <motion.div
-                      className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
-                      initial={{ width: 0, y: "-50%" }}
-                      whileHover={{
-                        width: "4px",
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
-                    />
-                    <motion.div
-                      variants={iconScaleVariants}
-                      initial="initial"
-                      whileHover="hover"
-                    >
-                      <IconComponent className="w-4 h-4" />
-                    </motion.div>
-                    <span>{link.name}</span>
-                  </motion.a>
-                );
-              })}
+  const IconComponent = link.icon;
+  return link.to ? (
+    <Link
+      key={link.name}
+      to={link.to}
+      className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
+    >
+      <motion.div
+        className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
+        initial={{ width: 0, y: "-50%" }}
+        whileHover={{ width: "4px", transition: { duration: 0.3, ease: "easeOut" } }}
+      />
+      <motion.div variants={iconScaleVariants} initial="initial" whileHover="hover">
+        <IconComponent className="w-4 h-4" />
+      </motion.div>
+      <span>{link.name}</span>
+    </Link>
+  ) : (
+    <motion.a
+      key={link.name}
+      href={link.href || '#'}
+      className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
+      variants={footerLinkVariants}
+      initial="initial"
+      whileHover="hover"
+    >
+      <motion.div
+        className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
+        initial={{ width: 0, y: "-50%" }}
+        whileHover={{
+          width: "4px",
+          transition: { duration: 0.3, ease: "easeOut" }
+        }}
+      />
+      <motion.div
+        variants={iconScaleVariants}
+        initial="initial"
+        whileHover="hover"
+      >
+        <IconComponent className="w-4 h-4" />
+      </motion.div>
+      <span>{link.name}</span>
+    </motion.a>
+  );
+})}
+
             </div>
           </motion.div>
         </div>
