@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Rocket, 
@@ -144,29 +145,37 @@ const Navbar = () => {
               {navItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
+
                   <div key={item.name}>
-                  <Link 
-                    to={item.path} 
-                    className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/5 overflow-hidden"
-                  >
-                    <motion.div
-                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-500 to-pink-400"
-                      initial={{ width: "0%" }}
-                      whileHover={{ 
-                        width: "100%",
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
-                    />
-                    <motion.div
-                      variants={iconVariants}
+                    <Link to={item.path}>
+                    <motion.button 
+                      className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/5 overflow-hidden"
+                      variants={navLinkVariants}
                       initial="initial"
                       whileHover="hover"
                     >
-                      <IconComponent className="w-4 h-4" />
-                    </motion.div>
-                    <span>{item.name}</span>
-                  </Link>
-                   </div>
+                      {/* Underline animation */}
+                      <motion.div
+                        className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-violet-400 via-purple-500 to-pink-400"
+                        initial={{ width: "0%" }}
+                        whileHover={{ 
+                          width: "100%",
+                          transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                      />
+                      
+                      <motion.div
+                        variants={iconVariants}
+                        initial="initial"
+                        whileHover="hover"
+                      >
+                        <IconComponent className="w-4 h-4" />
+                      </motion.div>
+                      <span>{item.name}</span>
+                    </motion.button>
+                    </Link>
+                  </div>
+
                 );
               })}
               

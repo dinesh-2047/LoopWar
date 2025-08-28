@@ -8,7 +8,7 @@ export const CreateRoom=()=> {
 
   const handleCreate = (e) => {
     e.preventDefault();
-    // Later  can connect this with backend 
+    // Later  can connect this with backend
     console.log("Room Created:", { roomName, maxPlayers });
     alert(`Room "${roomName}" created with ${maxPlayers} players!`);
   };
