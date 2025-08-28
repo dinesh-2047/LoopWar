@@ -144,9 +144,9 @@ const Navbar = () => {
               {navItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
+                  <div key={item.name}>
                   <Link 
                     to={item.path} 
-                    key={item.name}
                     className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-white/5 overflow-hidden"
                   >
                     <motion.div
@@ -166,6 +166,7 @@ const Navbar = () => {
                     </motion.div>
                     <span>{item.name}</span>
                   </Link>
+                   </div>
                 );
               })}
               
