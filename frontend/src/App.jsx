@@ -3,11 +3,16 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import React, { Component } from 'react';
 import SignIn from './components/Sigin';
+import Opensource from './components/Opensource';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
 import Contact from './pages/Contact'
-
+import BackToTopButton from "./components/BackToTopButton";
+import Leaderboard from './pages/Leaderboard';
+import FAQ from './components/FAQ';
+import Tournaments from './components/Tournaments';
+import Events from './components/Event';
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -37,9 +42,16 @@ function App() {
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
           <Route path="/leaderboard" element={<div className="text-white text-center p-10">Leaderboard Page</div>} />
           <Route path="/Signin" element={<SignIn />} />
+
+          <Route path="/opensource" element={<Opensource />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
+          <Route path='/tournaments' element={<Tournaments/>}/>
+          <Route path="/events" element={<Events />} />
         </Routes>
         <Footer/>
+        <BackToTopButton />
       </ErrorBoundary>
     </div>
   );
