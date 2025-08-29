@@ -8,6 +8,7 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsofServicePage";
 import Contact from "./pages/Contact";
 import BackToTopButton from "./components/BackToTopButton";
+
 import Leaderboard from "./pages/Leaderboard";
 import FAQ from "./components/FAQ";
 import Tournaments from "./components/Tournaments";
@@ -67,8 +68,10 @@ function App() {
           <Route path="/opensource" element={<Opensource />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+            
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/tournaments" element={<Tournaments />} />
+
           <Route path="/events" element={<Events />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
