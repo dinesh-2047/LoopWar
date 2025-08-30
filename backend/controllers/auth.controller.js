@@ -11,7 +11,10 @@ const isPasswordTooSimilar = (password, username, fullName, email) => {
   const loweredUsername = username.toLowerCase();
   const loweredEmail = email.toLowerCase();
   const loweredFullNameParts = fullName.toLowerCase().split(/\s+/);
-  if (loweredPassword.includes(loweredUsername) || loweredPassword.includes(loweredEmail)) {
+  if (
+    loweredPassword.includes(loweredUsername) ||
+    loweredPassword.includes(loweredEmail)
+  ) {
     return true;
   }
   for (let part of loweredFullNameParts) {
@@ -35,11 +38,17 @@ export const signup = async (req, res) => {
       !/[!@#$%^&*]/.test(password)
     ) {
       return res.status(400).json({
-        error: "Password must be at least 6 characters, contain a number and a special character",
+        error:
+          "Password must be at least 6 characters, contain a number and a special character",
       });
     }
     if (isPasswordTooSimilar(password, username, fullName, email)) {
-      return res.status(400).json({error: "Password cannot contain parts of username, full name, or email"});
+      return res
+        .status(400)
+        .json({
+          error:
+            "Password cannot contain parts of username, full name, or email",
+        });
     }
 
     const userExists = await User.findOne({ $or: [{ email }, { username }] });
@@ -60,8 +69,8 @@ export const signup = async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 15 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "None",
-      secure: true,
+      sameSite: "Lax",
+      secure: false,
     });
 
     res.status(201).json({ message: "Signup successful", userId: user._id });
@@ -87,8 +96,8 @@ export const login = async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 15 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "None",
-      secure: true,
+      sameSite: "Lax",
+      secure: false,
     });
 
     res.json({ message: "Login successful", userId: user._id });
@@ -206,7 +215,12 @@ export const resetPassword = async (req, res) => {
     }
 
     if (
-      isPasswordTooSimilar(newPassword, user.username, user.fullName, user.email)
+      isPasswordTooSimilar(
+        newPassword,
+        user.username,
+        user.fullName,
+        user.email
+      )
     ) {
       return res.status(400).json({
         error: "Password cannot contain parts of username, full name, or email",
@@ -222,15 +236,17 @@ export const resetPassword = async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 15 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "None",
-      secure: true,
+      sameSite: "Lax",
+      secure: false,
     });
 
-    res.json({ success: true, message: "Password reset successful", userId: user._id });
+    res.json({
+      success: true,
+      message: "Password reset successful",
+      userId: user._id,
+    });
   } catch (err) {
     console.error("Reset Password Error:", err.message);
     res.status(500).json({ error: "Something went wrong" });
   }
 };
-
-
