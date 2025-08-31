@@ -8,13 +8,11 @@ export default function RocketLanding() {
   useEffect(() => {
     // Stage progression with timings
     const timers = [
-      // Stage 1: Show loading for 2 seconds
+      
       setTimeout(() => setStage('launching'), 2000),
-      
-      // Stage 2: Show launching animation for 2.5 seconds
+    
       setTimeout(() => setStage('zoom'), 4500),
-      
-      // Stage 3: Zoom effect for 1 second then start countdown
+
       setTimeout(() => setStage('countdown'), 5500),
       
       // Countdown timers
@@ -22,7 +20,7 @@ export default function RocketLanding() {
       setTimeout(() => setCountdown(1), 7500),
       setTimeout(() => setCountdown(0), 8500),
       
-      // Stage 4: Redirect after countdown
+   
       setTimeout(() => {
         window.location.href = "/Home";
       }, 9500)
@@ -115,7 +113,7 @@ export default function RocketLanding() {
                 <span className="tracking-widest font-extrabold animate-pulse ml-6 mr-6">LOOPWAR</span>
                 <span className="text-yellow-400 text-8xl font-bold">▲</span>
                 <div className="text-3xl mt-4 text-green-400 animate-bounce font-bold">
-                  LAUNCHING NOW!
+                  LAUNCHING NOW!!
                 </div>
               </div>
             )}
