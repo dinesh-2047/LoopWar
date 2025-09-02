@@ -1,6 +1,6 @@
 import express from "express";
 import { createChallenge, getChallenges, getChallengeById } from "../controllers/challenge.controller.js";
-import protectRoute from "../middleware/protectRoute.js";
+import { protectRoute } from "../middleware/protectRoute.js";
 
 const router = express.Router();
 
