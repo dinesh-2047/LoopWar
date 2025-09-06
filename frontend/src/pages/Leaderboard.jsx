@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CodeEditor from "../components/CodeEditor";
 
 const mockData = [
   { id: 1, username: "Unknown 1", score: 150, matchesWon: 12 },
@@ -8,15 +9,16 @@ const mockData = [
 
 function Leaderboard() {
   const [players, setPlayers] = useState([]);
+  const [code, setCode] = useState("// Start coding here...");
 
   useEffect(() => {
     setPlayers(mockData.sort((a, b) => b.score - a.score));
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-gray-900 via-purple-900/50 to-black text-white text-center p-10">
+    <div className="bg-gradient-to-br from-gray-900 via-purple-900/50 to-black text-white text-center p-10 min-h-screen">
       <h1 className="text-3xl font-bold mb-4 text-center mt-12">
-        🏆 Leaderboard{" "}
+        🏆 Leaderboard
       </h1>
       <p className="text-lg font-semibold tracking-wider">
         &nbsp; &nbsp; This is the Leaderboard page.
@@ -52,7 +54,6 @@ function Leaderboard() {
                   key={player.id}
                   className={`transition transform hover:scale-[1.01] hover:shadow-md ${rankColor}`}
                 >
-
                   <td className="p-4 text-lg">
                     {index === 0
                       ? "🥇"
@@ -73,7 +74,6 @@ function Leaderboard() {
                   </td>
 
                   <td className="p-4 text-base font-medium">{player.score}</td>
-
                   <td className="p-4 text-base font-medium">
                     {player.matchesWon}
                   </td>
@@ -82,6 +82,12 @@ function Leaderboard() {
             })}
           </tbody>
         </table>
+      </div>
+
+      {/* Code editor demo section */}
+      <div className="mt-12 text-left">
+        <h2 className="text-2xl font-bold mb-4">💻 Try the Code Editor</h2>
+        <CodeEditor value={code} onChange={setCode} />
       </div>
     </div>
   );
