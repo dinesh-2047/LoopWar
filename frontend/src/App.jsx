@@ -2,13 +2,20 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import React, { Component } from 'react';
+import Opensource from './components/Opensource';
 import Footer from './components/Footer';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsofServicePage';
 import Contact from './pages/Contact'
 import BackToTopButton from "./components/BackToTopButton";
 import Leaderboard from './pages/Leaderboard';
-
+import FAQ from './components/FAQ';
+import Tournaments from './components/Tournaments';
+import Events from './components/Event';
+import RoomVoiceVideoChat from './components/RoomVoiceVideoChat';
+import SpectatorRoom from "./components/SpectatorRoom.jsx";
+import CreateChallenge from "./components/CreateChallenge";
+import CodeReviewBot from "./components/CodeReviewBot";
 class ErrorBoundary extends Component {
   state = { hasError: false };
 
@@ -36,8 +43,16 @@ function App() {
           <Route path="/create-room" element={<div className="text-white text-center p-10">Create Room Page</div>} />
           <Route path="/join-room" element={<div className="text-white text-center p-10">Join Room Page</div>} />
           <Route path="/about" element={<div className="text-white text-center p-10">About Page</div>} />
+          <Route path="/opensource" element={<Opensource />} />
+          <Route path="/faq" element={<FAQ />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path='/contact-us' element={<Contact/>}/>
+          <Route path='/tournaments' element={<Tournaments/>}/>
+          <Route path="/events" element={<Events />} />
+          <Route path="/room-chat" element={<RoomVoiceVideoChat />} />
+          <Route path="/spectate" element={<SpectatorRoom />} />
+          <Route path="/create-challenge" element={<CreateChallenge />} />
+          <Route path="/code-review-bot" element={<CodeReviewBot />} />
         </Routes>
         <Footer/>
         <BackToTopButton />
