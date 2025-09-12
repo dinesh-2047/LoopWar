@@ -164,7 +164,7 @@ const Footer = () => {
   const supportLinks = [
     { name: 'Help Center', icon: HelpCircle },
     { name: 'Contact Us', icon: Phone, href: '/contact-us' },
-    { name: 'Bug Reports', icon: Bug },
+    { name: 'Bug Reports', icon: Bug , to: '/bug-report'  },
     { name: 'Feature Requests', icon: Lightbulb },
     { name: 'Privacy Policy', icon: Lock, href: '/privacy' },
     { name: 'Terms of Service', icon: FileText, href: '/terms' },
