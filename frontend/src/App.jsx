@@ -19,6 +19,7 @@ import RoomVoiceVideoChat from "./components/RoomVoiceVideoChat";
 import SpectatorRoom from "./components/SpectatorRoom.jsx";
 import CreateChallenge from "./components/CreateChallenge";
 import CodeReviewBot from "./components/CodeReviewBot";
+import BugReport from "./components/Bugreport";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -81,7 +82,9 @@ function App() {
           <Route path="/spectate" element={<SpectatorRoom />} />
           <Route path="/create-challenge" element={<CreateChallenge />} />
           <Route path="/code-review-bot" element={<CodeReviewBot />} />
+          <Route path="/bug-report" element={<BugReport />} />
         </Routes>
+      
         <Footer />
         <BackToTopButton />
       </ErrorBoundary>
