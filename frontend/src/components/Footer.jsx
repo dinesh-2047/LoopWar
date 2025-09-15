@@ -147,7 +147,7 @@ const Footer = () => {
     { name: 'Join Battle', icon: Swords },
     { name: 'Tournaments', icon: Trophy , to : '/tournaments' },
     { name: 'Practice Mode', icon: Target },
-    { name: 'Challenges', icon: Brain },
+    { name: 'Challenges', icon: Brain,to: '/challenges' },
     { name: 'Arena', icon: Building }
   ];
 
@@ -164,7 +164,7 @@ const Footer = () => {
   const supportLinks = [
     { name: 'Help Center', icon: HelpCircle },
     { name: 'Contact Us', icon: Phone, href: '/contact-us' },
-    { name: 'Bug Reports', icon: Bug , to: '/bug-report' },
+    { name: 'Bug Reports', icon: Bug },
     { name: 'Feature Requests', icon: Lightbulb },
     { name: 'Privacy Policy', icon: Lock, href: '/privacy' },
     { name: 'Terms of Service', icon: FileText, href: '/terms' },
