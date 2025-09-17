@@ -145,9 +145,9 @@ const Footer = () => {
   const platformLinks = [
     { name: 'Create Room', icon: Rocket },
     { name: 'Join Battle', icon: Swords },
-    { name: 'Tournaments', icon: Trophy },
+    { name: 'Tournaments', icon: Trophy , to : '/tournaments' },
     { name: 'Practice Mode', icon: Target },
-    { name: 'Challenges', icon: Brain },
+    { name: 'Challenges', icon: Brain,to: '/challenges' },
     { name: 'Arena', icon: Building }
   ];
 
@@ -315,35 +315,49 @@ const Footer = () => {
             </h3>
             <div className="space-y-3">
               {platformLinks.map((link) => {
-                const IconComponent = link.icon;
-                return (
-                  <motion.button
-                    key={link.name}
-                    className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
-                    variants={footerLinkVariants}
-                    initial="initial"
-                    whileHover="hover"
-                  >
-                    {/* Animated underline */}
-                    <motion.div
-                      className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
-                      initial={{ width: 0, y: "-50%" }}
-                      whileHover={{
-                        width: "4px",
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
-                    />
-                    <motion.div
-                      variants={iconScaleVariants}
-                      initial="initial"
-                      whileHover="hover"
-                    >
-                      <IconComponent className="w-4 h-4" />
-                    </motion.div>
-                    <span>{link.name}</span>
-                  </motion.button>
-                );
-              })}
+  const IconComponent = link.icon;
+  return link.to ? (
+    <motion.div key={link.name}>
+      <Link
+        to={link.to}
+        className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
+      >
+        {/* Animated underline */}
+        <motion.div
+          className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
+          initial={{ width: 0, y: "-50%" }}
+          whileHover={{
+            width: "4px",
+            transition: { duration: 0.3, ease: "easeOut" }
+          }}
+        />
+        <motion.div variants={iconScaleVariants} initial="initial" whileHover="hover">
+          <IconComponent className="w-4 h-4" />
+        </motion.div>
+        <span>{link.name}</span>
+      </Link>
+    </motion.div>
+  ) : (
+    <motion.button
+      key={link.name}
+      className="flex items-center space-x-3 text-gray-400 hover:text-white text-sm group relative"
+      variants={footerLinkVariants}
+      initial="initial"
+      whileHover="hover"
+    >
+      <motion.div
+        className="absolute left-[-8px] top-1/2 h-0.5 bg-gradient-to-r from-violet-400 to-purple-500"
+        initial={{ width: 0, y: "-50%" }}
+        whileHover={{ width: "4px", transition: { duration: 0.3, ease: "easeOut" } }}
+      />
+      <motion.div variants={iconScaleVariants} initial="initial" whileHover="hover">
+        <IconComponent className="w-4 h-4" />
+      </motion.div>
+      <span>{link.name}</span>
+    </motion.button>
+  );
+})}
+
             </div>
           </motion.div>
 
