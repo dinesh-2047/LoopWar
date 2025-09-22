@@ -19,7 +19,9 @@ import RoomVoiceVideoChat from "./components/RoomVoiceVideoChat";
 import SpectatorRoom from "./components/SpectatorRoom.jsx";
 import CreateChallenge from "./components/CreateChallenge";
 import CodeReviewBot from "./components/CodeReviewBot";
+import CreateRoom from "./components/CreateRoom";
 import ChallengesPage from "./components/Challenge.jsx";
+
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -46,6 +48,7 @@ function App() {
       <ErrorBoundary>
         <Navbar />
         <Routes>
+          <Route path="/create-room" element={<CreateRoom />} />
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />
