@@ -17,9 +17,7 @@ import Login from "./Auth/Login";
 import GoogleRedirect from "./Auth/GoogleRedirect";
 import RoomVoiceVideoChat from "./components/RoomVoiceVideoChat";
 import SpectatorRoom from "./components/SpectatorRoom.jsx";
-import CreateChallenge from "./components/CreateChallenge";
-import CodeReviewBot from "./components/CodeReviewBot";
-import ChallengesPage from "./components/Challenge.jsx";
+import ChallengeDetail from "./components/ChallengeDetail.jsx";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -83,6 +81,7 @@ function App() {
           <Route path="/create-challenge" element={<CreateChallenge />} />
           <Route path="/code-review-bot" element={<CodeReviewBot />} />
           <Route path="/challenges" element={<ChallengesPage />} />
+          <Route path="/challenges/:id" element={<ChallengeDetail />} />
           
         </Routes>
       

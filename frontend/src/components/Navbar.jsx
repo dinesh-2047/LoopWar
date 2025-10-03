@@ -9,7 +9,9 @@ import {
   Zap, 
   Swords,
   Menu,
-  X
+  X,
+  Code,
+  Plus
 } from 'lucide-react';
 import { Link } from 'react-router-dom'; // ✅ Import Link for routing
 
@@ -21,6 +23,8 @@ const Navbar = () => {
     { name: 'Join Room', path: '/join-room', icon: Target },
     { name: 'Tournaments', path: '/tournaments', icon: Trophy },
     { name: 'Leaderboard', path: '/leaderboard', icon: BarChart3 },
+    { name: 'Challenges', path: '/challenges', icon: Code },
+    { name: 'Create Challenge', path: '/create-challenge', icon: Plus },
     { name: 'About', path: '/about', icon: Info }
   ];
 
