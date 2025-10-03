@@ -27,20 +27,38 @@ export default function CreateChallenge() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
+
+    // Validation
+    if (testCases.length === 0) {
+      setMessage("At least one test case is required");
+      return;
+    }
+
+    if (!testCases.some(tc => tc.isSample)) {
+      setMessage("At least one test case must be marked as sample");
+      return;
+    }
+
     try {
       const res = await fetch("/api/challenges", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({
-          title,
-          description,
+          title: title.trim(),
+          description: description.trim(),
           difficulty,
           testCases,
           tags: tags.split(",").map(t => t.trim()).filter(Boolean)
         })
       });
-      if (!res.ok) throw new Error("Failed to create challenge");
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to create challenge");
+      }
+
       setMessage("Challenge created successfully!");
       setTitle(""); setDescription(""); setDifficulty("Easy"); setTestCases([{ input: "", output: "", isSample: true }]); setTags("");
     } catch (err) {

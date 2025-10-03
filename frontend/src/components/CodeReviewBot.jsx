@@ -38,6 +38,11 @@ const CodeReviewBot = () => {
             <option value="java">Java</option>
             <option value="c++">C++</option>
             <option value="c#">C#</option>
+            <option value="go">Go</option>
+            <option value="rust">Rust</option>
+            <option value="php">PHP</option>
+            <option value="ruby">Ruby</option>
+            <option value="typescript">TypeScript</option>
           </select>
         </div>
         <div>
